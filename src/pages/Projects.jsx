@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaExternalLinkAlt } from 'react-icons/fa';
+import { FaExternalLinkAlt, FaCode, FaEye } from 'react-icons/fa';
 
 const projects = [
   {
@@ -8,24 +8,27 @@ const projects = [
     description: 'A modern coffee shop website with menu display, location information, and contact form. Built with responsive design for optimal viewing on all devices.',
     technologies: ['HTML', 'CSS', 'JavaScript'],
     demo: 'https://kaffen-coffee.netlify.app',
+    code: '#', // Add your GitHub link if available
     image: '/assets/images/kaffen-screenshot.jpg',
-    accentColor: 'from-amber-600 to-amber-800' // Coffee theme color
+    accentColor: 'bg-gradient-to-br from-amber-500 to-amber-700'
   },
   {
     title: 'HIM Software Development',
     description: 'Professional software development company website showcasing services, portfolio, and contact information. Features clean design and smooth animations.',
     technologies: ['React', 'Tailwind CSS'],
     demo: 'https://himsoftwaredevelopment.netlify.app/',
+    code: '#', // Add your GitHub link if available
     image: '/assets/images/him-software-screenshot.jpg',
-    accentColor: 'from-blue-600 to-indigo-700' // Tech theme color
+    accentColor: 'bg-gradient-to-br from-blue-500 to-indigo-600'
   },
   {
     title: 'HIM Kekeme Portfolio',
     description: 'Personal portfolio website featuring projects, skills, and contact information. Designed with a minimalist approach to highlight the work.',
     technologies: ['HTML', 'CSS', 'JavaScript'],
     demo: 'https://himkekeme.netlify.app/',
+    code: '#', // Add your GitHub link if available
     image: '/assets/images/himkekeme-screenshot.jpg',
-    accentColor: 'from-purple-600 to-fuchsia-600' // Creative theme color
+    accentColor: 'bg-gradient-to-br from-purple-500 to-fuchsia-500'
   }
 ];
 
@@ -33,7 +36,7 @@ const Projects = () => {
   return (
     <div id="projects" className="relative py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
       {/* Background pattern */}
-      <div className="absolute inset-0 overflow-hidden opacity-5 dark:opacity-10">
+      <div className="absolute inset-0 overflow-hidden opacity-5 dark:opacity-[0.03]">
         <div 
           className="absolute top-0 left-0 w-full h-full bg-[url('/assets/images/chrome-pattern.jfif')]"
           style={{
@@ -74,9 +77,10 @@ const Projects = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
                 />
-                <div className={`absolute inset-0 bg-gradient-to-t ${project.accentColor} opacity-80 mix-blend-multiply`} />
+                <div className={`absolute inset-0 ${project.accentColor} opacity-80 mix-blend-multiply`} />
               </div>
               
               {/* Project content */}
@@ -85,7 +89,7 @@ const Projects = () => {
                   <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                     {project.title}
                   </h3>
-                  <p className="text-gray-600 dark:text-gray-300">
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
                     {project.description}
                   </p>
                 </div>
@@ -102,34 +106,51 @@ const Projects = () => {
                   ))}
                 </div>
                 
-                {/* View project button */}
-                <a
-                  href={project.demo}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center px-4 py-2 rounded-lg text-white bg-gradient-to-r ${project.accentColor} hover:opacity-90 transition-all`}
-                >
-                  <FaExternalLinkAlt className="mr-2" />
-                  <span>View Project</span>
-                </a>
+                {/* Action buttons */}
+                <div className="flex gap-3">
+                  <a
+                    href={project.demo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`flex-1 flex items-center justify-center px-4 py-2 rounded-lg text-white ${project.accentColor} hover:opacity-90 transition-all`}
+                  >
+                    <FaEye className="mr-2" />
+                    <span>Live Demo</span>
+                  </a>
+                  {project.code && (
+                    <a
+                      href={project.code}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 flex items-center justify-center px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 transition-all"
+                    >
+                      <FaCode className="mr-2" />
+                      <span>View Code</span>
+                    </a>
+                  )}
+                </div>
               </div>
               
               {/* Corner accent */}
-              <div className={`absolute top-0 right-0 w-16 h-16 bg-gradient-to-br ${project.accentColor} opacity-20`} />
+              <div className={`absolute top-0 right-0 w-16 h-16 ${project.accentColor} opacity-20`} />
             </motion.div>
           ))}
         </div>
 
-        {/* View all projects button (optional) */}
+        {/* View all projects button */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
           className="text-center mt-12"
         >
-          <button className="px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all">
+          <a
+            href="#projects" // Link to your full portfolio if available
+            className="inline-flex items-center px-6 py-3 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+          >
             View All Projects
-          </button>
+            <FaExternalLinkAlt className="ml-2" />
+          </a>
         </motion.div>
       </div>
     </div>

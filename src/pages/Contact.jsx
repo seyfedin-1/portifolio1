@@ -42,13 +42,13 @@ const Footer = () => {
       icon: <FaEnvelope className="text-xl" />,
       title: "Email",
       value: "zakirseyfa@gmail.com",
-      link: "mailto:seyfedins@example.com",
+      link: "mailto:zakirseyfa@gmail.com",
       color: "text-red-500"
     },
     {
       icon: <FaPhone className="text-xl" />,
       title: "Phone",
-      value: "+251934177253",
+      value: "+251 934 177 253",
       link: "tel:+251934177253",
       color: "text-green-500"
     },
@@ -69,8 +69,20 @@ const Footer = () => {
   ];
 
   return (
-    <footer id="contact" className="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 border-t border-gray-200 dark:border-gray-700">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <footer id="contact" className="relative border-t border-gray-200 dark:border-gray-700">
+      {/* Background image with transparency */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div 
+          className="absolute top-0 left-0 w-full h-full bg-[url('/assets/images/chrome-pattern.jfif')] opacity-10 dark:opacity-5"
+          style={{
+            backgroundSize: 'cover',
+            backgroundRepeat: 'repeat',
+            mixBlendMode: 'multiply'
+          }}
+        ></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative z-10">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Left Column - Contact Info */}
           <div>
@@ -97,7 +109,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   whileHover={{ x: 5 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  className="flex items-center gap-4 p-3 rounded-lg bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition-all"
+                  className="flex items-center gap-4 p-3 rounded-lg bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm shadow-sm hover:shadow-md transition-all"
                 >
                   <div className={`p-3 rounded-full ${method.color} bg-opacity-10`}>
                     {method.icon}
@@ -119,7 +131,7 @@ const Footer = () => {
             className="relative"
           >
             <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl blur opacity-25"></div>
-            <div className="relative bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden p-6">
+            <div className="relative bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg overflow-hidden p-6">
               <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
                 Send me a message
               </h3>
@@ -141,7 +153,7 @@ const Footer = () => {
                         activeField === 'name' 
                           ? 'border-blue-500' 
                           : 'border-gray-300 dark:border-gray-600'
-                      } bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all`}
+                      } bg-white/50 dark:bg-gray-700/50 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all`}
                       required
                     />
                   </div>
@@ -164,7 +176,7 @@ const Footer = () => {
                         activeField === 'email' 
                           ? 'border-blue-500' 
                           : 'border-gray-300 dark:border-gray-600'
-                      } bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all`}
+                      } bg-white/50 dark:bg-gray-700/50 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all`}
                       required
                     />
                   </div>
@@ -187,7 +199,7 @@ const Footer = () => {
                         activeField === 'message' 
                           ? 'border-blue-500' 
                           : 'border-gray-300 dark:border-gray-600'
-                      } bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all`}
+                      } bg-white/50 dark:bg-gray-700/50 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all`}
                       required
                     />
                   </div>
@@ -235,7 +247,7 @@ const Footer = () => {
 
         {/* Copyright */}
         <div className="mt-12 pt-6 border-t border-gray-200 dark:border-gray-700 text-center text-gray-500 dark:text-gray-400 text-sm">
-          <p>© {new Date().getFullYear()} seyfedin. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Seyfedin Shukur. All rights reserved.</p>
         </div>
       </div>
     </footer>
