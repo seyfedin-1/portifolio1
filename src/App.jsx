@@ -16,7 +16,7 @@ export default function App() {
     // Show loading screen initially
     setTimeout(() => {
       setIsLoading(false);
-    }, 4000);
+    }, 3000);
   }, []);
 
   const handleScroll = () => {
