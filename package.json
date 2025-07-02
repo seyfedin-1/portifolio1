@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "preinstall": "icacls node_modules\\.bin\\* /grant Everyone:(RX)",
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
