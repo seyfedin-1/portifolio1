@@ -5,22 +5,21 @@ import { FaReact, FaNodeJs, FaHtml5, FaCss3Alt, FaJs, FaPython, FaDatabase, FaMo
 const skills = {
   frontend: [
     { name: 'React', icon: <FaReact className="w-6 h-6" />, level: 95, color: 'blue' },
-    { name: 'HTML5', icon: <FaHtml5 className="w-6 h-6" />, level: 90, color: 'red' },
-    { name: 'CSS', icon: <FaCss3Alt className="w-6 h-6" />, level: 85, color: 'purple' },
-    { name: 'JavaScript', icon: <FaJs className="w-6 h-6" />, level: 90, color: 'yellow' },
-    { name: 'Tailwind CSS', icon: <FaCss3Alt className="w-6 h-6" />, level: 85, color: 'green' },
-    { name: 'Bootstrap', icon: <FaCss3Alt className="w-6 h-6" />, level: 80, color: 'pink' }
+    { name: 'HTML', icon: <FaHtml5 className="w-6 h-6" />, level: 95, color: 'red' },
+    { name: 'CSS', icon: <FaCss3Alt className="w-6 h-6" />, level: 95, color: 'purple' },
+    { name: 'JavaScript', icon: <FaJs className="w-6 h-6" />, level: 75, color: 'yellow' },
+    { name: 'Tailwind CSS', icon: <FaCss3Alt className="w-6 h-6" />, level: 90, color: 'green' },
+    { name: 'Bootstrap', icon: <FaCss3Alt className="w-6 h-6" />, level: 70, color: 'pink' }
   ],
   backend: [
     { name: 'Node.js', icon: <FaNodeJs className="w-6 h-6" />, level: 85, color: 'green' },
-    { name: 'Python', icon: <FaPython className="w-6 h-6" />, level: 80, color: 'blue' },
     { name: 'MongoDB', icon: <FaDatabase className="w-6 h-6" />, level: 85, color: 'orange' },
     { name: 'Express.js', icon: <FaNodeJs className="w-6 h-6" />, level: 80, color: 'red' },
     { name: 'SQL', icon: <FaDatabase className="w-6 h-6" />, level: 75, color: 'purple' }
   ],
   mobile: [
-    { name: 'Flutter', icon: <FaMobileAlt className="w-6 h-6" />, level: 75, color: 'blue' },
-    { name: 'React Native', icon: <FaReact className="w-6 h-6" />, level: 70, color: 'green' }
+    { name: 'Flutter', icon: <FaMobileAlt className="w-6 h-6" />, level: 90, color: 'blue' },
+    { name: 'React Native', icon: <FaReact className="w-6 h-6" />, level: 50, color: 'green' }
   ]
 };
 
@@ -51,8 +50,21 @@ const Skills = () => {
   }, []);
 
   return (
-    <div id="skills" className="min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto">
+    <div id="skills" className="relative min-h-screen py-16 px-4 sm:px-6 lg:px-8 bg-white dark:bg-gray-900">
+      {/* Background image with transparency */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div 
+          className="absolute top-0 left-0 w-full h-full bg-[url('/assets/images/chrome-pattern.jfif')] opacity-10 dark:opacity-5"
+          style={{
+            backgroundSize: 'cover',
+            backgroundRepeat: 'repeat',
+            backgroundAttachment: 'fixed',
+            mixBlendMode: 'multiply'
+          }}
+        ></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -99,7 +111,7 @@ const Skills = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ y: -5 }}
-              className={`bg-gray-50 dark:bg-gray-800 rounded-xl p-6 shadow-md border-l-4 ${
+              className={`bg-gray-50/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl p-6 shadow-md border-l-4 ${
                 skill.color === 'blue' ? 'border-blue-500' :
                 skill.color === 'red' ? 'border-red-500' :
                 skill.color === 'purple' ? 'border-purple-500' :

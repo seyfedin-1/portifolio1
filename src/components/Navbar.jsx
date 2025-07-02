@@ -10,7 +10,7 @@ const Navbar = () => {
     { id: 'skills', label: 'Skills' },
     { id: 'certifications', label: 'Certifications' },
     { id: 'projects', label: 'Projects' },
-    { id: 'recommendations', label: 'Recommendations' }, // Added recommendations
+    { id: 'recommendations', label: 'Recommendations' },
   ];
 
   const contactItem = { id: 'contact', label: 'Contact' };
@@ -39,7 +39,7 @@ const Navbar = () => {
                 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent cursor-pointer" 
                 onClick={() => scrollToSection('home')}
               >
-                Portfolio
+                Seyfedin.
               </motion.div>
             </div>
 
@@ -55,7 +55,6 @@ const Navbar = () => {
                   {item.label}
                 </motion.div>
               ))}
-              {/* Contact item at the end */}
               <motion.div
                 key={contactItem.id}
                 whileHover={{ scale: 1.05 }}
@@ -68,13 +67,15 @@ const Navbar = () => {
             </div>
 
             <div className="flex items-center space-x-4">
-              <motion.button 
+              <motion.a
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:shadow-md transition-all duration-200 font-medium"
+                href="/cv.pdf"
+                download
+                className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-lg hover:shadow-md transition-all duration-200 font-medium cursor-pointer"
               >
                 Download CV
-              </motion.button>
+              </motion.a>
             </div>
 
             <div className="md:hidden">
@@ -128,7 +129,6 @@ const Navbar = () => {
                     {item.label}
                   </motion.div>
                 ))}
-                {/* Contact item at the end */}
                 <motion.div
                   key={contactItem.id}
                   whileHover={{ scale: 1.02 }}

@@ -5,14 +5,14 @@ import { FaDownload, FaEnvelope } from 'react-icons/fa';
 const About = () => {
   const timelineItems = [
     {
-      year: '2023',
+      year: '2025',
       title: 'Graduated from Debre Berhan University',
       description: 'Bachelor of Science in Software Engineering',
       icon: '🎓',
     },
     {
-      year: '2022',
-      title: 'Internship at XYZ Company',
+      year: '2024',
+      title: 'Internship at kuraz-tech Company',
       description: 'Full-Stack Developer Intern',
       icon: '💼',
     },
@@ -24,15 +24,28 @@ const About = () => {
     },
   ];
 
+  const handleContactClick = () => {
+    window.location.href = "mailto:zakirseyfa@gmail.com";
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-4 sm:px-6 lg:px-8 relative">
-      {/* Decorative elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-10">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-16 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      {/* Chrome pattern background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div 
+          className="absolute top-0 left-0 w-full h-full bg-[url('/assets/images/chrome-pattern.jfif')] bg-cover bg-center opacity-10"
+          style={{ mixBlendMode: 'multiply' }}
+        ></div>
+      </div>
+
+      {/* Decorative pattern */}
+      <div className="absolute inset-0 overflow-hidden opacity-5">
         <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0iIzAwMCIgZmlsbC1vcGFjaXR5PSIwLjA1Ii8+PC9wYXR0ZXJuPjwvZGVmcz48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSJ1cmwoI3BhdHRlcm4pIi8+PC9zdmc+')]"></div>
       </div>
-      
+
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          {/* Left: Image and description */}
           <div className="space-y-10">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -42,7 +55,7 @@ const About = () => {
             >
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl shadow-2xl">
                 <img
-                   src="/assets/images/seyfa.jpg"
+                  src="/assets/images/seyfa1.png"
                   alt="Professional Profile"
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
@@ -60,29 +73,33 @@ const About = () => {
                 About Me
               </h2>
               <div className="space-y-6">
-                <p className="text-xl text-gray-700 leading-relaxed">
-                  I am a passionate Full-Stack Developer with a strong foundation in software engineering. 
-                  My journey in technology began with a Bachelor's degree in Computer Science, and I've 
-                  since honed my skills through hands-on experience and continuous learning.
+                <p className="text-l text-gray-700 leading-relaxed">
+                  I'm a passionate Software Engineer with expertise in building modern web and mobile applications that solve real-world problems. My journey in technology began at Debre Berhan University, where I earned my Bachelor's degree in Software Engineering with a 3.47 GPA, but my true education has come from hands-on development and leading tech initiatives.
                 </p>
-                <p className="text-xl text-gray-700 leading-relaxed">
+                <p className="text-l text-gray-700 leading-relaxed">
                   My expertise lies in building scalable web applications using modern technologies. 
                   I specialize in React for the frontend and Node.js for the backend, with a keen eye 
                   for creating user-friendly interfaces and efficient backend systems.
                 </p>
               </div>
+
+              {/* Buttons */}
               <div className="flex flex-wrap gap-4">
-                <motion.button
+                <motion.a
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 flex items-center space-x-3 shadow-lg hover:shadow-xl"
+                  href="/cv.pdf"
+                  download
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-xl transition-all duration-300 flex items-center space-x-3 shadow-lg hover:shadow-xl cursor-pointer"
                 >
                   <FaDownload className="w-5 h-5" />
                   <span>Download CV</span>
-                </motion.button>
+                </motion.a>
+
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  onClick={handleContactClick}
                   className="bg-white text-gray-800 border border-gray-200 hover:border-gray-300 font-semibold py-4 px-8 rounded-xl transition-all duration-300 flex items-center space-x-3 shadow-lg hover:shadow-xl"
                 >
                   <FaEnvelope className="w-5 h-5 text-blue-600" />
@@ -92,7 +109,9 @@ const About = () => {
             </motion.div>
           </div>
 
+          {/* Right: Education, Experience, Timeline */}
           <div className="space-y-12">
+            {/* Education */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -109,13 +128,14 @@ const About = () => {
                     <div>
                       <h4 className="font-bold text-xl text-gray-900">Debre Berhan University</h4>
                       <p className="text-lg text-gray-700 mt-1">Bachelor of Science in Software Engineering</p>
-                      <p className="text-sm text-gray-500 mt-2">2019 - 2023</p>
+                      <p className="text-sm text-gray-500 mt-2">2019 - 2025</p>
                     </div>
                   </div>
                 </div>
               </div>
             </motion.div>
 
+            {/* Experience */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -130,15 +150,16 @@ const About = () => {
                       💼
                     </div>
                     <div>
-                      <h4 className="font-bold text-xl text-gray-900">XYZ Company</h4>
+                      <h4 className="font-bold text-xl text-gray-900">Kuraz-Tech Company</h4>
                       <p className="text-lg text-gray-700 mt-1">Full-Stack Developer Intern</p>
-                      <p className="text-sm text-gray-500 mt-2">2022</p>
+                      <p className="text-sm text-gray-500 mt-2">2024</p>
                     </div>
                   </div>
                 </div>
               </div>
             </motion.div>
 
+            {/* Timeline */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
