@@ -55,7 +55,7 @@ const About = () => {
             >
               <div className="relative aspect-square w-full overflow-hidden rounded-3xl shadow-2xl">
                 <img
-                  src="/assets/images/seyfa1.png"
+                  src="/assets/images/about.jpg"
                   alt="Professional Profile"
                   className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500"
                 />
